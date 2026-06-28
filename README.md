@@ -132,7 +132,7 @@ All calculations update dynamically based on the active filters in their respect
 
 ---
 
-## 1. Summary Tab (KPIs)
+## 1. a) Summary Tab (KPIs)
 
 ### Total Patients
 Calculated as the total number of rows in the filtered dataset.
@@ -167,7 +167,7 @@ Total Patient Records / Unique Doctor IDs
 
 ---
 
-## 2. Summary Tab (Charts)
+## 1. b) Summary Tab (Charts)
 
 ### Patients by Nationality (Map)
 
@@ -189,7 +189,7 @@ Patient counts grouped by `Age Category`, displayed as percentages of the total 
 
 ---
 
-## 3. Periodic Movement Tab
+## 2. Periodic Movement Tab
 
 ### Yearly Movement
 
@@ -235,7 +235,7 @@ MoM % = (Current Month Count - Previous Month Count) / Previous Month Count
 
 ---
 
-## 4. Diagnosis vs Patients Tab
+## 3. Diagnosis vs Patients Tab
 
 ### Patients by Diagnosis
 
@@ -249,7 +249,7 @@ Count of patient records for each diagnosis
 
 ---
 
-## 5. Diagnosis vs Age Tab
+## 4. Diagnosis vs Age Tab
 
 ### Average Age by Diagnosis
 
@@ -265,7 +265,7 @@ Empty diagnosis groups created by filtering are excluded from the calculation.
 
 ---
 
-## 6. Patient Visits Tab
+## 5. Patient Visits Tab
 
 ### Patients Visit by Day
 
@@ -305,12 +305,13 @@ This produces separate trend lines for male and female patient visits throughout
 
 ---
 
-## Technologies Used
+## Tech and Libraries Used
 
 - Python
-- Streamlit
-- Pandas
-- Plotly
-- OpenPyXL
+    -- Streamlit
+    -- Pandas
+    -- Plotly
+    -- OpenPyXL
+- Jupyter Notebook
 
 ---
