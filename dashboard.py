@@ -271,7 +271,7 @@ with tabs[0]:
 
 
 # ════════════════════════════════════════════════════════════════════════════
-# TAB 2 — PERIODIC MOVEMENT (Unchanged)
+# TAB 2 — PERIODIC MOVEMENT
 # ════════════════════════════════════════════════════════════════════════════
 with tabs[1]:
 
@@ -348,7 +348,7 @@ with tabs[1]:
 # ════════════════════════════════════════════════════════════════════════════
 with tabs[2]:
 
-    fa1, fa2, fa3, fa4 = st.columns(4)
+    fa1, fa2, fa3, fa4, fa5 = st.columns(5)
     with fa1:
         sel_nat3 = st.multiselect("Nationality", sorted(df['Nationality'].unique()), key="dp_nat")
     with fa2:
@@ -356,13 +356,16 @@ with tabs[2]:
     with fa3:
         sel_mo3 = st.multiselect("Month", ordered_months, key="dp_mo")
     with fa4:
+        sel_age3 = st.selectbox("Age Category", ["All"]+list(df['Age Category'].cat.categories), key="dp_age")
+    with fa5:
         sel_hosp3 = st.selectbox("Hospital", ["All"]+sorted(df['Hospital Name'].unique()), key="dp_hosp")
 
     dfd = df.copy()
     if sel_nat3:             dfd = dfd[dfd['Nationality'].isin(sel_nat3)]
     if sel_yr3:              dfd = dfd[dfd['Year'].isin(sel_yr3)]
     if sel_mo3:              dfd = dfd[dfd['Month Name'].isin(sel_mo3)]
-    if sel_hosp3 != "All":  dfd = dfd[dfd['Hospital Name'] == sel_hosp3]
+    if sel_age3 != "All":    dfd = dfd[dfd['Age Category'] == sel_age3]
+    if sel_hosp3 != "All":   dfd = dfd[dfd['Hospital Name'] == sel_hosp3]
 
     diag_counts = dfd['Diagnosis Name'].value_counts().sort_index()
 
@@ -391,7 +394,7 @@ with tabs[2]:
 # ════════════════════════════════════════════════════════════════════════════
 with tabs[3]:
 
-    fb1, fb2, fb3, fb4 = st.columns(4)
+    fb1, fb2, fb3, fb4, fb5 = st.columns(5)
     with fb1:
         sel_nat4 = st.multiselect("Nationality", sorted(df['Nationality'].unique()), key="da_nat")
     with fb2:
@@ -399,13 +402,16 @@ with tabs[3]:
     with fb3:
         sel_mo4 = st.multiselect("Month", ordered_months, key="da_mo")
     with fb4:
+        sel_age4 = st.selectbox("Age Category", ["All"]+list(df['Age Category'].cat.categories), key="da_age")
+    with fb5:
         sel_hosp4 = st.selectbox("Hospital", ["All"]+sorted(df['Hospital Name'].unique()), key="da_hosp")
 
     dfda = df.copy()
     if sel_nat4:             dfda = dfda[dfda['Nationality'].isin(sel_nat4)]
     if sel_yr4:              dfda = dfda[dfda['Year'].isin(sel_yr4)]
     if sel_mo4:              dfda = dfda[dfda['Month Name'].isin(sel_mo4)]
-    if sel_hosp4 != "All":  dfda = dfda[dfda['Hospital Name'] == sel_hosp4]
+    if sel_age4 != "All":    dfda = dfda[dfda['Age Category'] == sel_age4]
+    if sel_hosp4 != "All":   dfda = dfda[dfda['Hospital Name'] == sel_hosp4]
 
     avg_age_diag = dfda.groupby('Diagnosis Name')['Age'].mean().round(0).astype(float)
     # Filter out NaNs if any diagnosis had no patients
@@ -437,7 +443,7 @@ with tabs[3]:
 # ════════════════════════════════════════════════════════════════════════════
 with tabs[4]:
 
-    fv1, fv2, fv3, fv4 = st.columns(4)
+    fv1, fv2, fv3, fv4, fv5 = st.columns(5)
     with fv1:
         sel_nat5 = st.multiselect("Nationality", sorted(df['Nationality'].unique()), key="pv_nat")
     with fv2:
@@ -445,13 +451,16 @@ with tabs[4]:
     with fv3:
         sel_mo5 = st.multiselect("Month", ordered_months, key="pv_mo")
     with fv4:
+        sel_age5 = st.selectbox("Age Category", ["All"]+list(df['Age Category'].cat.categories), key="pv_age")
+    with fv5:
         sel_hosp5 = st.selectbox("Hospital", ["All"]+sorted(df['Hospital Name'].unique()), key="pv_hosp")
 
     dfv = df.copy()
     if sel_nat5:             dfv = dfv[dfv['Nationality'].isin(sel_nat5)]
     if sel_yr5:              dfv = dfv[dfv['Year'].isin(sel_yr5)]
     if sel_mo5:              dfv = dfv[dfv['Month Name'].isin(sel_mo5)]
-    if sel_hosp5 != "All":  dfv = dfv[dfv['Hospital Name'] == sel_hosp5]
+    if sel_age5 != "All":    dfv = dfv[dfv['Age Category'] == sel_age5]
+    if sel_hosp5 != "All":   dfv = dfv[dfv['Hospital Name'] == sel_hosp5]
 
     day_order = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
     visits_day = dfv['DayOfWeek'].value_counts().reindex(day_order).reset_index()
