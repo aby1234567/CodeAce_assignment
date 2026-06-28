@@ -21,7 +21,7 @@ A Streamlit dashboard replicating a Power BI report built on synthetic Middle Ea
 **Requirements:** Python 3.9+
 
 ```bash
-pip install streamlit pandas plotly openpyxl numpy
+pip install -r requirements.txt
 ```
 
 **Run:**
