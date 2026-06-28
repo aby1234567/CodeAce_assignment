@@ -84,4 +84,3 @@ All tabs include filters (nationality, year, hospital, diagnosis where applicabl
 | Doctors | 1,000 unique |
 | Age range | 15 – 91 |
 
-> **Note:** This is a synthetic dataset generated for demonstration purposes. It does not represent real patient records.
