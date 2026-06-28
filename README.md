@@ -9,8 +9,9 @@ A Streamlit dashboard replicating a Power BI report built on synthetic Middle Ea
 ```
 ├── dashboard.py                                  # Streamlit app
 ├── patient_data_cleaned_with_age_category.xlsx   # Cleaned dataset (required at runtime)
-├── patient_data_check.ipynb                      # Data quality check & transformation notebook
-└── README.md
+├── patient_data_check.ipynb    
+├── README.md                 # Data quality check & transformation notebook
+└── requirements.txt
 ```
 
 ---
